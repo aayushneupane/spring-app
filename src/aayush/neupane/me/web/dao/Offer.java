@@ -57,7 +57,9 @@ public class Offer {
 
 	@Override
 	public String toString() {
-		return "Offer [id=" + id + ", name=" + name + ", email=" + email + "]";
+		return "Offer [id=" + id + ", name=" + name + ", email=" + email + ", text=" + text + "]";
 	}
+	
+	
 
 }

@@ -24,13 +24,19 @@ public class OffersController {
 	/*
 	 * Using spring's model instead of creating own ModelAndView
 	 */
-	@RequestMapping("/")
-	public String showHome(Model model) {
+	@RequestMapping("/offers")
+	public String showOffers(Model model) {
 		List<Offer> offers = offersService.getCurrent();
 		
 		model.addAttribute("name", "aayush");
 		model.addAttribute("offers", offers);
-		return "home";
+		return "offers";
+	}
+	
+	@RequestMapping("/createoffer")
+	public String createOffer(Model model) {
+
+		return "createoffer";
 	}
 
 }
