@@ -6,10 +6,6 @@ public class Offer {
 	private String email;
 	private String text;
 
-	public int getId() {
-		return id;
-	}
-	
 	public Offer(int id, String name, String email, String text) {
 		this.id = id;
 		this.name = name;
@@ -25,6 +21,10 @@ public class Offer {
 	
 	public Offer() {
 		
+	}
+	
+	public int getId() {
+		return id;
 	}
 
 	public void setId(int id) {

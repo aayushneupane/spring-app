@@ -1,40 +1,35 @@
 package aayush.neupane.me.web.controllers;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.servlet.ModelAndView;
-//
-//import java.util.Map;
-//
-//import javax.servlet.http.HttpSession;
+
+import aayush.neupane.me.web.dao.Offer;
+import aayush.neupane.me.web.service.OffersService;
 
 @Controller
 public class OffersController {
 	
-	/*the home page. located at web-inf/jsps/. doesnt need full url 
-	 * because prefix and suffix are defined at spring-app-servlet.xml.
-	 * 
-	 *  Using request to pass 'name' parameter instead of session. 
-	 */
+	//adding service layer object to the main controller
+	private OffersService offersService;
 	
-//	@RequestMapping("/")
-//	public ModelAndView showHome(HttpSession session) {
-//		
-//		ModelAndView mv = new ModelAndView("home");
-//		Map<String, Object> model = mv.getModel();
-//		model.put("name", "Neupane");
-//		session.setAttribute("name", "Aayush");
-//		return mv;
-//	}
+	@Autowired
+	public void setOffersService(OffersService offersService) {
+		this.offersService = offersService;
+	}
 	
 	/*
 	 * Using spring's model instead of creating own ModelAndView
 	 */
 	@RequestMapping("/")
 	public String showHome(Model model) {
+		List<Offer> offers = offersService.getCurrent();
 		
-		model.addAttribute("name", "<b>Aayush</b>");
+		model.addAttribute("name", "aayush");
+		model.addAttribute("offers", offers);
 		return "home";
 	}
 

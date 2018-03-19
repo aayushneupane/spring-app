@@ -21,16 +21,16 @@ public class OffersDAO {
 	
 	private NamedParameterJdbcTemplate jdbc;
 	
-	//@Autowired
-	public void setJdbc(DataSource jdbc) {
+	@Autowired
+	public void setDataSource(DataSource jdbc) {
 		this.jdbc = new NamedParameterJdbcTemplate(jdbc);
 	}
 
 	public List<Offer> getOffers(){
-		
 		String sql = "select * from offers";
 		
 		return jdbc.query(sql, new RowMapper<Offer>() {
+			@Override
 			public Offer mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Offer offer = new Offer();
 				offer.setId(rs.getInt("id"));
@@ -52,6 +52,7 @@ public class OffersDAO {
 		String sql = "select * from offers where id = :id";
 		
 		return jdbc.queryForObject(sql, params, new RowMapper<Offer>() {
+			@Override
 			public Offer mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Offer offer = new Offer();
 				offer.setId(rs.getInt("id"));
