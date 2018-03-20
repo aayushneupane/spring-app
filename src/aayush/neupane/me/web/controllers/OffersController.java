@@ -47,5 +47,21 @@ public class OffersController {
 
 		return "createoffer";
 	}
+	
+	@RequestMapping(value="/docreate")
+	public String doCreate(Model model, Offer offer,
+			@RequestParam(value="name") String name,
+			@RequestParam(value="email") String email,
+			@RequestParam(value="text") String text) {
+		
+		model.addAttribute(name, "name");
+		model.addAttribute(email, "email");
+		model.addAttribute(text, "text");
+		
+		System.out.println(name + " " + email + " " + text);
+		System.out.println(offer);
+		
+		return "offercreated";
+	}
 
 }
