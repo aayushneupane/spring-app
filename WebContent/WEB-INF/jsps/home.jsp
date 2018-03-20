@@ -11,9 +11,9 @@
 </head>
 <body>
 
-<p><a href="/${requestContext.request.contextPat}/offers">Show Current Offers</a></p>
-<p><a href="/${requestContext.request.contextPat}/createoffer">Add New Offer</a></p>
-	
+<p><a href="./offers">Show Current Offers</a></p>
+<p><a href="./createoffer">Add New Offer</a></p>
+${id }
 
 </body>
 </html>

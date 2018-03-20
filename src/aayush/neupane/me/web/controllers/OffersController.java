@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import aayush.neupane.me.web.dao.Offer;
 import aayush.neupane.me.web.service.OffersService;
@@ -31,6 +33,13 @@ public class OffersController {
 		model.addAttribute("name", "aayush");
 		model.addAttribute("offers", offers);
 		return "offers";
+	}
+	
+	@RequestMapping(value="/test", method=RequestMethod.GET)
+	public String showTest(Model model, @RequestParam(value = "id", required=false) String id) { 
+		System.out.println("Id is :" + id);
+		model.addAttribute("id", id);
+		return "home";
 	}
 	
 	@RequestMapping("/createoffer")
