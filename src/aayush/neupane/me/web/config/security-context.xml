@@ -15,14 +15,26 @@
 					password="aneupax" />
 			</security:user-service>
 		</security:authentication-provider>
+		<security:authentication-provider>
+			<security:jdbc-user-service data-source-ref="dataSource"
+				authorities-by-username-query="select a.user_id, a.authority from authorities a, users u where a.user_id = u.user_id and u.username = ?" />
+		</security:authentication-provider>
 	</security:authentication-manager>
+
 	<security:http use-expressions="true">
-		<security:intercept-url pattern="/createoffer" access="isAuthenticated()" />
-		<security:intercept-url pattern="/docreate" access="isAuthenticated()" />
 		<security:intercept-url pattern="/" access="permitAll" />
-		<security:intercept-url pattern="/static/**" access="permitAll" />
-		<security:intercept-url pattern="/offers" access="permitAll" />
+		<security:intercept-url pattern="/createoffer"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/docreate"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/offers"
+			access="permitAll" />
+		<security:intercept-url pattern="/login"
+			access="permitAll" />
+		<security:intercept-url pattern="/static/**"
+			access="permitAll" />
 		<security:intercept-url pattern="/**" access="denyAll" />
-		<security:form-login />
+		<security:form-login login-page="/login"
+			authentication-failure-url="/login?error=true" />
 	</security:http>
 </beans>
