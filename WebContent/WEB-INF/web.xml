@@ -35,6 +35,7 @@
     <param-value>
 			classpath:aayush/neupane/me/web/config/dao-context.xml
 			classpath:aayush/neupane/me/web/config/service-context.xml
+			classpath:aayush/neupane/me/web/config/security-context.xml
 		</param-value>
   </context-param>
   <filter>
