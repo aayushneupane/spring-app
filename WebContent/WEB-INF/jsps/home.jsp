@@ -13,7 +13,6 @@
 
 <p><a href="${pageContext.request.contextPath}/offers">Show Current Offers</a></p>
 <p><a href="${pageContext.request.contextPath}/createoffer">Add New Offer</a></p>
-${id}
 
 </body>
 </html>
