@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-${name} <br>
-${email} <br>
-${text} <br>
+Offer created!
 </body>
 </html>
