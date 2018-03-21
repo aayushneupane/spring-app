@@ -13,7 +13,7 @@
 
 	<form method="post"
 		action="${pageContext.request.contextPath}/docreate">
-		<table>
+		<table class="table">
 
 			<tr>
 				<td>Name:</td>
@@ -25,11 +25,11 @@
 			</tr>
 			<tr>
 				<td>Text:</td>
-				<td><textarea name="text" rows="2" cols="10" /></textarea></td>
+				<td><textarea name="text" /></textarea></td>
 			</tr>
 			<tr>
 				<td></td>
-				<td><input value="Create" type="submit" /></td>
+				<td><input value="Create" type="submit" class="btn btn-default"/></td>
 				<td><input value="${_csrf.token}" type="hidden" name="${_csrf.parameterName}"/></td>
 			</tr>
 
