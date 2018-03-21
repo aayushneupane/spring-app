@@ -1,11 +1,15 @@
 package aayush.neupane.me.web.dao;
 
+import javax.validation.constraints.Size;
+
 public class Offer {
 	private int id;
+	
+	@Size(min=5, max=100)
 	private String name;
 	private String email;
 	private String text;
-
+ 
 	public Offer(int id, String name, String email, String text) {
 		this.id = id;
 		this.name = name;

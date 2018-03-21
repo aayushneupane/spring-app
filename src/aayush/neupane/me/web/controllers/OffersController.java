@@ -2,9 +2,13 @@ package aayush.neupane.me.web.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -49,17 +53,20 @@ public class OffersController {
 	}
 	
 	@RequestMapping(value="/docreate")
-	public String doCreate(Model model, Offer offer,
-			@RequestParam(value="name") String name,
-			@RequestParam(value="email") String email,
-			@RequestParam(value="text") String text) {
+	public String doCreate(Model model, @Valid Offer offer, BindingResult result) {
 		
-		model.addAttribute(name, "name");
-		model.addAttribute(email, "email");
-		model.addAttribute(text, "text");
-		
-		System.out.println(name + " " + email + " " + text);
 		System.out.println(offer);
+		
+		if (result.hasErrors()) {
+			System.out.println("Invalid form!");
+			List<ObjectError> errors = result.getAllErrors();
+			
+			for (ObjectError error:errors) {
+				System.out.println(error.getDefaultMessage());
+			}
+		} else {
+			System.out.println("Form valid");
+		}
 		
 		return "offercreated";
 	}
