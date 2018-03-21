@@ -4,8 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="${pageContext.request.contextPath}/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="resources/bootstrap.min.css">
+<link href="${pageContext.request.contextPath}/static/css/bootstrap.min.css" rel="stylesheet" type="text/html">
 <title>Insert title here</title>
 </head>
 <body>
@@ -31,6 +30,7 @@
 			<tr>
 				<td></td>
 				<td><input value="Create" type="submit" /></td>
+				<td><input value="${_csrf.token}" type="hidden" name="${_csrf.parameterName}"/></td>
 			</tr>
 
 		</table>

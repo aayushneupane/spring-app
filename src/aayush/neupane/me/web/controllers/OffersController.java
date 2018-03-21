@@ -66,6 +66,7 @@ public class OffersController {
 			}
 		} else {
 			System.out.println("Form valid");
+			offersService.createOffer(offer);
 		}
 		
 		return "offercreated";
